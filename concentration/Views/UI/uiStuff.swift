@@ -18,9 +18,8 @@ struct OutletsLayer {
     func buttonsOutletLayer(view: [UIButton]) {
         for buttons in view {
             
-        buttons.layer.cornerRadius = 15
-            
-
+            buttons.layer.cornerRadius = 15
+            // SHADOW STUFF
             buttons.layer.shadowColor = #colorLiteral(red: 0.1318426728, green: 0.1439217925, blue: 0.158605963, alpha: 1)
             buttons.layer.shadowOpacity = 0.8;
             buttons.layer.shadowRadius = 5;

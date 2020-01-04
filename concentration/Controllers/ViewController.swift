@@ -11,29 +11,62 @@ import UIKit
 class ViewController: UIViewController {
     
     // Instances
-    var uiLayer = OutletsLayer()
-    
-    
+   
+
     
     // Outlets
-    @IBOutlet var buttonOutlet: [UIButton]!
-    @IBOutlet weak var result: UIView!
-    
+    @IBOutlet weak var tempretureOutlet: UILabel!
+    @IBOutlet weak var cityTextFieldOutlet: UITextField!
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // buttons layout set
-        uiLayer.buttonsOutletLayer(view: buttonOutlet )
+        if let urlString = URL(string: "https://api.openweathermap.org/data/2.5/weather?appid=8b8286cb872c5238a1941724160e04b9&q=London") {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: urlString) { (data, response, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return // meaning get out this entire function
+                }
+                
+                if let safeData = data {
+                    let dataString = String(data: safeData, encoding: .utf8)
+                    print(dataString)
+                }
+                
+                
+            }
+            task.resume()
+            
+            
+            
+        }
+     
+        
+      
+      
+     
         
         // result radius
-        result.layer.cornerRadius = 10
+//        result.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
+    
 
     
 
+    
+
+}
+
+
+
+extension UIButton {
+    
+ 
+    
+    
 }
 

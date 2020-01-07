@@ -1,6 +1,6 @@
-## 8'sWeed ⛽️
+## API
 
-Find out more info about you cannabis products by snappiing a photo of the label 🤯.
+Making API call, Decoding  and Encoing JSON.
 
 ## Technology
 
@@ -10,6 +10,5 @@ Find out more info about you cannabis products by snappiing a photo of the label
 
 ## API
 
-1. Otreeba.com
 
 

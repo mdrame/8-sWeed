@@ -13,6 +13,7 @@
 		7700771A23C154D9002BC8C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700771823C154D9002BC8C5 /* Main.storyboard */; };
 		7700771C23C154DA002BC8C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7700771B23C154DA002BC8C5 /* Assets.xcassets */; };
 		7700771F23C154DA002BC8C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700771D23C154DA002BC8C5 /* LaunchScreen.storyboard */; };
+		7700779123C44F3D002BC8C5 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700779023C44F3D002BC8C5 /* JsonModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7700771B23C154DA002BC8C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7700771E23C154DA002BC8C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7700772023C154DA002BC8C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7700779023C44F3D002BC8C5 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7700771223C154D8002BC8C5 /* AppDelegate.swift */,
 				7700771423C154D8002BC8C5 /* SceneDelegate.swift */,
 				7700771623C154D9002BC8C5 /* ViewController.swift */,
+				7700779023C44F3D002BC8C5 /* JsonModel.swift */,
 				7700771823C154D9002BC8C5 /* Main.storyboard */,
 				7700771B23C154DA002BC8C5 /* Assets.xcassets */,
 				7700771D23C154DA002BC8C5 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7700771723C154D9002BC8C5 /* ViewController.swift in Sources */,
+				7700779123C44F3D002BC8C5 /* JsonModel.swift in Sources */,
 				7700771323C154D8002BC8C5 /* AppDelegate.swift in Sources */,
 				7700771523C154D8002BC8C5 /* SceneDelegate.swift in Sources */,
 			);

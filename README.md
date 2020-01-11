@@ -8,7 +8,6 @@ Making API call, Decoding  and Encoing JSON.
 2. Xcode
 3. CocoPod
 
-## API
 
 
 

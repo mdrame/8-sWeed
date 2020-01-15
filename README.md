@@ -1,6 +1,10 @@
  ## About :
 
-8's Weed is an iOS mobile app that provides user with detail information about canabis strain
+A mobile app built in swift to help user find close by library using CoreLocation
+
+## Progress :
+
+Loading ...
 
 ## Technology :
 

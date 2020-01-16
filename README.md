@@ -1,6 +1,6 @@
  ## About :
 
-A mobile app built in swift to help user find close by library using CoreLocation
+UnKnown
 
 ## Progress :
 

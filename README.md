@@ -1,10 +1,10 @@
  ## About :
 
-UnKnown
+A simple, but most effective todo list on the market 📝
 
 ## Progress :
 
-Loading ...
+Under Construction ....
 
 ## Technology :
 
@@ -12,8 +12,6 @@ Loading ...
 2. Xcode
 3. Core-Data
 
-
-## API :
 
 
 

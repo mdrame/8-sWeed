@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class CustomeCollectionViewCell: UICollectionViewCell {
     
@@ -42,7 +43,15 @@ class CustomeCollectionViewCell: UICollectionViewCell {
     
     // SetUI
     
-    func setUI(categoryName name: UILabel, categoryDate date: UILabel, db object: dbObject) {
+    func setUI(db object: CategoryTemplateModel  ) {
+        
+        // Assing views to model
+        
+        templateName.text = object.templateName
+        categoryName.text = object.categoryName
+        date.text = object.categoryDate
+        
+        
         
     }
     

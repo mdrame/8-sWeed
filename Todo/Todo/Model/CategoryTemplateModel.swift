@@ -31,20 +31,29 @@ class CategoryTemplateModel {
 }
 
 
-
+//
 class SetData {
     
     
     var db: [CategoryTemplateModel] = []
     
     // dummy data base
-    let firstDummy = CategoryTemplateModel(categoryName: "Programming", categoryDate: "01 / 24 / 20", templateName: "Name")
+    let firstDummy = CategoryTemplateModel(categoryName: "Work Out", categoryDate: "01 / 24 / 20", templateName: "Name")
+    
+     let secondDummy = CategoryTemplateModel(categoryName: "Home Work", categoryDate: "01 / 27 / 20", templateName: "Name")
+    
+    
+    let thirdDummy = CategoryTemplateModel(categoryName: "Programming", categoryDate: "01 / 7 / 20", templateName: "Name")
+       
+    
     
     
     // we will porpulate our collection view with the collectio.
     func data()->[CategoryTemplateModel] {
         
         db.append(firstDummy)
+         db.append(secondDummy)
+        db.append(thirdDummy)
         return db
     }
     

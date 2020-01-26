@@ -14,7 +14,7 @@ class CategoryTemplateModel {
     var categoryName : String
     var categoryDate: String
     
-   
+    
     // init class
     init(categoryName: String, categoryDate: String) {
         
@@ -22,7 +22,7 @@ class CategoryTemplateModel {
         self.categoryDate = categoryDate
         
     }
-
+    
 }
 
 
@@ -35,20 +35,13 @@ class SetData {
     // dummy data base
     let firstDummy = CategoryTemplateModel(categoryName: "Work Out", categoryDate: "01 / 24 / 20")
     
-    let secondDummy = CategoryTemplateModel(categoryName: "Home Work", categoryDate: "01 / 27 / 20")
-
-
-    let thirdDummy = CategoryTemplateModel(categoryName: "Programming", categoryDate: "01 / 7 / 20")
-    
-    
     
     
     // we will porpulate our collection view with the collectio.
     func data()->[CategoryTemplateModel] {
         
         db.append(firstDummy)
-        db.append(secondDummy)
-        db.append(thirdDummy)
+        
         return db
     }
     

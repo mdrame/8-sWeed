@@ -9,13 +9,10 @@
 import UIKit
 
 
-
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
-    
+
     // Global
     
     
@@ -38,6 +35,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Left programmatic bar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "➕", style: .plain, target: self, action: #selector(barButtonHandler))
         
+        // navigation title enlargment
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         
         
     }
@@ -50,15 +50,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+ 
     
-
     // Instances
     
     let db = SetData()
     
-    
-    
-    
+
     // Outlet
     
     @IBOutlet weak var mainTableView: UITableView!
@@ -99,6 +97,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // UI is set in the custome cell class
         cell.setUI(db: db.data()[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // perform segue and send the class to the next vc
+        
     }
     
     

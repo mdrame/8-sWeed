@@ -12,31 +12,32 @@ import Foundation
 class CustomeTableViewCell: UITableViewCell {
     
     
+    
     // Instance
     
     
     
     // database Instance
     
-
- 
+    
+    
     
     // outlets
     
-    @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var categoryName: LabelCustomClass!
     @IBOutlet weak var date: UILabel!
     
     
     // Nob
     
     
-
+    
     // SetUI
     
     func setUI(db object: CategoryTemplateModel) {
         
         // Assing views to model
-      
+        
         categoryName.text = object.categoryName
         date.text = object.categoryDate
         

@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class CustomeCollectionViewCell: UICollectionViewCell {
+class CustomeTableViewCell: UITableViewCell {
     
     
     // Instance
@@ -17,37 +17,26 @@ class CustomeCollectionViewCell: UICollectionViewCell {
     
     
     // database Instance
-   
     
 
-    
-    // template
-    // template purpose is to be able to edit the name label programmatically.
-    
-    @IBOutlet var templateName: UILabel!
-    
+ 
     
     // outlets
-    @IBOutlet var categoryName: UILabel!
-    @IBOutlet var date: UILabel!
+    
+    @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     
     // Nob
     
     
-    
-    
-    
-    
-    
-    
+
     // SetUI
     
-    func setUI(db object: CategoryTemplateModel  ) {
+    func setUI(db object: CategoryTemplateModel) {
         
         // Assing views to model
-        
-        templateName.text = object.templateName
+      
         categoryName.text = object.categoryName
         date.text = object.categoryDate
         

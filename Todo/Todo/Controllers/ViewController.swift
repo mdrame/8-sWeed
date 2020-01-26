@@ -11,42 +11,47 @@ import UIKit
 
 
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     
     
     // Global
     
-    func collectionViewCalls() {
+    
+    
+    
+    // UIKite functions
+    
+    func tableViewViewCalls() {
         // DELEGATE AND DATA-SOURCE
-        mainCollectionView.delegate = self
-        mainCollectionView.dataSource = self
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
         
         
     }
+    
+    
     
     func navigationUISet() {
         
         // Left programmatic bar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "➕", style: .plain, target: self, action: #selector(barButtonHandler))
         
-
+        
         
     }
     
     
     // barbutton handler
     @objc func barButtonHandler() {
-               // add Alert with textfield and colors so user can pick category along with their color
+        // add Alert with textfield and colors so user can pick category along with their color
         
-            
-               
-           }
-           
-   
+    }
     
     
     
-    
+
     // Instances
     
     let db = SetData()
@@ -56,7 +61,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // Outlet
     
-    @IBOutlet var mainCollectionView: UICollectionView!
+    @IBOutlet weak var mainTableView: UITableView!
+    
     
     
     
@@ -65,14 +71,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Do any additional setup after loading the view.
         
         // this function calls the collectionview methods inorder to menimum global variables.
-        collectionViewCalls()
+        tableViewViewCalls()
         
-        // this method set\'s all navigation us component on view
+        // this method set's all navigation UI component on view
         navigationUISet()
         
         
     }
-
+    
     
     
     
@@ -83,20 +89,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     // DataSource and Delegate
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // dummy database count
-        db.data().count
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return db.data().count
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "contentViewCell", for: indexPath) as? CustomeCollectionViewCell
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomeTableViewCell
         // UI is set in the custome cell class
-        cell!.setUI(db: db.data()[indexPath.row])
-        
-        return cell!
+        cell.setUI(db: db.data()[indexPath.row])
+        return cell
     }
-
+    
+    
+    
+    
+    
     
 }
 

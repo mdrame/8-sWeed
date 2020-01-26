@@ -9,11 +9,13 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
-
+    
     // Global
+    // Array of type Model of data
+    var db = [CategoryTemplateModel]()
     
     
     
@@ -46,21 +48,61 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // barbutton handler
     @objc func barButtonHandler() {
         // add Alert with textfield and colors so user can pick category along with their color
+        //Step : 1
+        let alert = UIAlertController(title: "Add Category", message: "🖊", preferredStyle: UIAlertController.Style.alert )
+        
+        
+        var noteTextField = UITextField()
+        
+        //Step : 3
+        //For first TF
+//        alert.addTextField { (textField) in
+//            textField.placeholder = "Home-Work"
+//            textField.textColor = .black
+//            noteTextField = textField
+//            noteTextField.delegate = self
+//        }
+        
+        
+        //Step : 2
+        let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
+            // test
+            print("Saved")
+            
+        
+        }
+        
+        
+        
+        
+        //Step : 4
+        alert.addAction(save)
+        //Cancel action
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in
+            
+            print("Cancel Pressed")
+        }
+        
+        
+        alert.addAction(cancel)
+        //OR single line action
+        //alert.addAction(UIAlertAction(title: "Cancel", style: .default) { (alertAction) in })
+        
+        self.present(alert, animated:true, completion: nil)
         
     }
     
     
- 
+    
     
     // Instances
     
-    let db = SetData()
+    //    let db = SetData()
     
-
+    
     // Outlet
     
     @IBOutlet weak var mainTableView: UITableView!
-    
     
     
     
@@ -73,6 +115,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // this method set's all navigation UI component on view
         navigationUISet()
+        
+        
         
         
     }
@@ -89,13 +133,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // DataSource and Delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return db.data().count
+        return db.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomeTableViewCell
         // UI is set in the custome cell class
-        cell.setUI(db: db.data()[indexPath.row])
+        cell.setUI(db: db[indexPath.row])
         return cell
     }
     
@@ -103,6 +147,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // perform segue and send the class to the next vc
         
     }
+    
+    
+    
     
     
     

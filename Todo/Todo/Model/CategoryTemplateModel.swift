@@ -27,24 +27,24 @@ class CategoryTemplateModel {
 
 
 // Assiging Template class
-class SetData {
-    
-    
-    var db = [CategoryTemplateModel]()
-    
-    // dummy data base
-    let firstDummy = CategoryTemplateModel(categoryName: "Work Out", categoryDate: "01 / 24 / 20")
-    
-    
-    
-    // we will porpulate our collection view with the collectio.
-    func data()->[CategoryTemplateModel] {
-        
-        db.append(firstDummy)
-        
-        return db
-    }
-    
-    
-    
-}
+//class SetData {
+//    
+//    
+//    var db = [CategoryTemplateModel]()
+//    
+//    // dummy data base
+//    let firstDummy = CategoryTemplateModel(categoryName: "Work Out", categoryDate: "01 / 24 / 20")
+//    
+//    
+//    
+//    // we will porpulate our collection view with the collectio.
+//    func data()->[CategoryTemplateModel] {
+//        
+//        db.append(firstDummy)
+//        
+//        return db
+//    }
+//    
+//    
+//    
+//}

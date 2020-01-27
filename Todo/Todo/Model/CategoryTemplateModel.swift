@@ -30,7 +30,7 @@ class CategoryTemplateModel {
 //class SetData {
 //    
 //    
-//    var db = [CategoryTemplateModel]()
+//    var db: [CategoryTemplateModel] = []
 //    
 //    // dummy data base
 //    let firstDummy = CategoryTemplateModel(categoryName: "Work Out", categoryDate: "01 / 24 / 20")
@@ -40,11 +40,12 @@ class CategoryTemplateModel {
 //    // we will porpulate our collection view with the collectio.
 //    func data()->[CategoryTemplateModel] {
 //        
-//        db.append(firstDummy)
-//        
 //        return db
 //    }
 //    
 //    
+//    func setTheData(){
+//        db.append(firstDummy)
+//    }
 //    
 //}

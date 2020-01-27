@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
+
     
     // UIKite functions
     
@@ -55,20 +56,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var noteTextField = UITextField()
         
         //Step : 3
-        //For first TF
-//        alert.addTextField { (textField) in
-//            textField.placeholder = "Home-Work"
-//            textField.textColor = .black
-//            noteTextField = textField
+//       Textfield in alertcontroller
+        alert.addTextField { (textField) in
+            textField.placeholder = "Home-Work"
+            textField.textColor = .black
+            textField.textAlignment = .center
+            noteTextField = textField
 //            noteTextField.delegate = self
-//        }
+        }
         
         
         //Step : 2
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             // test
-            print("Saved")
-            
+            print("Category: \(noteTextField.text!)")
+            self.db.append(CategoryTemplateModel(categoryName: "\(noteTextField.text!)", categoryDate: "Jan 26., 2020"))
+            self.mainTableView.reloadData()
         
         }
         
@@ -97,7 +100,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Instances
     
-    //    let db = SetData()
+//        let db = SetData()
+        
     
     
     // Outlet
@@ -112,7 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // this function calls the collectionview methods inorder to menimum global variables.
         tableViewViewCalls()
-        
+     
         // this method set's all navigation UI component on view
         navigationUISet()
         
@@ -134,6 +138,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return db.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

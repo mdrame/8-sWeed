@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -16,6 +17,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Global
     // Array of type Model of data
     var db = [CategoryTemplateModel]()
+    // accessing the compted property from app delegate
+     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     
@@ -71,7 +74,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             // test
             print("Category: \(noteTextField.text!)")
             // add object to array
-            self.db.append(CategoryTemplateModel(categoryName: "\(noteTextField.text!)", categoryDate: "Jan 26, 2020"))
+            
+           
+            
+            let newModel = CategoryTemplateModel(context: self.context)
+            newModel.categoryName = noteTextField.text
+            newModel.categoryDate = "Jan 20, 2020"
+            self.db.append(newModel)
+            
+            self.saveData()
+            
             
         
             // refresh table to show newly added object
@@ -125,7 +137,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // this method set's all navigation UI component on view
         navigationUISet()
         
-        
+        // load database on load
+        fetchdDATA()
         
         
     }
@@ -160,11 +173,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
+
+    
+    
+
+}
+
+
+
+extension ViewController {
+    
+    //  MARK: CRUD -> Core Data
+    
+    
+    func saveData() {
+        do {
+            try context.save()
+        } catch {
+            print("Error Occured while trying to save data: \(error.localizedDescription)")
+        }
+        
+        mainTableView.reloadData()
+    }
     
     
     
-    
-    
+    func fetchdDATA() {
+        
+        let data: NSFetchRequest<CategoryTemplateModel> = CategoryTemplateModel.fetchRequest()
+        
+        do {
+           db =  try context.fetch(data)
+        } catch {
+            print("Error Occured while fatching data: \(error.localizedDescription)")
+        }
+        
+    }
     
     
     

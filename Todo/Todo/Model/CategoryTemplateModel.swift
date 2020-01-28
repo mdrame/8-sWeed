@@ -9,21 +9,21 @@
 import Foundation
 
 
-class CategoryTemplateModel {
-    
-    var categoryName : String
-    var categoryDate: String
-    
-    
-    // init class
-    init(categoryName: String, categoryDate: String) {
-        
-        self.categoryName = categoryName
-        self.categoryDate = categoryDate
-        
-    }
-    
-}
+//class CategoryTemplateModel {
+//
+//    var categoryName : String
+//    var categoryDate: String
+//
+//    
+//    // init class
+//    init(categoryName: String, categoryDate: String) {
+//
+//        self.categoryName = categoryName
+//        self.categoryDate = categoryDate
+//
+//    }
+//
+//}
 
 
 // Assiging Template classs

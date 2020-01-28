@@ -70,7 +70,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
             // test
             print("Category: \(noteTextField.text!)")
-            self.db.append(CategoryTemplateModel(categoryName: "\(noteTextField.text!)", categoryDate: "Jan 26., 2020"))
+            // add object to array
+            self.db.append(CategoryTemplateModel(categoryName: "\(noteTextField.text!)", categoryDate: "Jan 26, 2020"))
+            
+        
+            // refresh table to show newly added object
             self.mainTableView.reloadData()
         
         }
@@ -101,6 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Instances
     
 //        let db = SetData()
+    
         
     
     
@@ -152,6 +157,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // perform segue and send the class to the next vc
         
     }
+    
+    
+    
     
     
     

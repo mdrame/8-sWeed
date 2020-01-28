@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7708834923DD7A7000C6596B /* LabelCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7708834823DD7A7000C6596B /* LabelCustomClass.swift */; };
+		7708836C23DFEAD000C6596B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7708836A23DFEAD000C6596B /* DataModel.xcdatamodeld */; };
 		777C4EE123DA529D002CC53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C4EE023DA529D002CC53C /* AppDelegate.swift */; };
 		777C4EE323DA529D002CC53C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C4EE223DA529D002CC53C /* SceneDelegate.swift */; };
 		777C4EE523DA529D002CC53C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C4EE423DA529D002CC53C /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		7708834823DD7A7000C6596B /* LabelCustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCustomClass.swift; sourceTree = "<group>"; };
+		7708836B23DFEAD000C6596B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		777C4EDD23DA529D002CC53C /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		777C4EE023DA529D002CC53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		777C4EE223DA529D002CC53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				777C4EE423DA529D002CC53C /* ViewController.swift */,
+				7708836A23DFEAD000C6596B /* DataModel.xcdatamodeld */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				777C4EE523DA529D002CC53C /* ViewController.swift in Sources */,
 				777C4EF923DAB204002CC53C /* CustomeTableViewCell.swift in Sources */,
 				777C4EFB23DAB75C002CC53C /* CategoryTemplateModel.swift in Sources */,
+				7708836C23DFEAD000C6596B /* DataModel.xcdatamodeld in Sources */,
 				777C4EE123DA529D002CC53C /* AppDelegate.swift in Sources */,
 				7708834923DD7A7000C6596B /* LabelCustomClass.swift in Sources */,
 				777C4EE323DA529D002CC53C /* SceneDelegate.swift in Sources */,
@@ -390,6 +394,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7708836A23DFEAD000C6596B /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7708836B23DFEAD000C6596B /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 7708836B23DFEAD000C6596B /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 777C4ED523DA529D002CC53C /* Project object */;
 }

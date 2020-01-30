@@ -15,14 +15,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     // Global
-    // Array of type Model of data
-    var db = [CategoryTemplateModel]()
+    // Array of type Model of data that reloads the table view using property observer
+    var db = [CategoryTemplateModel](){
+        didSet{
+            mainTableView.reloadData()
+        }
+    }
     // accessing the compted property from app delegate
-     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     
-
+    
     
     // UIKite functions
     
@@ -59,13 +63,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var noteTextField = UITextField()
         
         //Step : 3
-//       Textfield in alertcontroller
+        //       Textfield in alertcontroller
         alert.addTextField { (textField) in
             textField.placeholder = "Home-Work"
             textField.textColor = .black
             textField.textAlignment = .center
             noteTextField = textField
-//            noteTextField.delegate = self
+            //            noteTextField.delegate = self
         }
         
         
@@ -75,7 +79,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("Category: \(noteTextField.text!)")
             // add object to array
             
-           
+            
             
             let newModel = CategoryTemplateModel(context: self.context)
             newModel.categoryName = noteTextField.text
@@ -85,10 +89,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.saveData()
             
             
-        
+            
             // refresh table to show newly added object
-//            self.mainTableView.reloadData()
-        
+            //            self.mainTableView.reloadData()
+            
         }
         
         
@@ -116,9 +120,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Instances
     
-//        let db = SetData()
+    //        let db = SetData()
     
-        
+    
     
     
     // Outlet
@@ -133,12 +137,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // this function calls the collectionview methods inorder to menimum global variables.
         tableViewViewCalls()
-     
+        
         // this method set's all navigation UI component on view
         navigationUISet()
         
         // load database on load
         fetchdDATA()
+        
+        
         
         
     }
@@ -167,9 +173,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  
-       // perfome segeu to sup category veew controller
-
+        
+        // perfome segeu to sup category veew controller
+        
+        // Testing Update :
+        
+       
+        
+        
     }
     
     
@@ -184,98 +195,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // CHECK EDITING STYLE :
         
         switch editingStyle {
-        case .insert:
+        case .insert: // editing I suppose
             // do this
-            
             // 1. Update both array and context
             
-             break
+            // 1. Create a alert controller.
+            print("Editing Cell")
+            
+            break
         case .delete:
             // delete cell
             
             // 1. Delete index from both array and context
+            context.delete(db[indexPath.row])
+            db.remove(at: indexPath.row)
             
-            // 1. Create a alert controller.
-                           let alert = UIAlertController(title: "Add Category", message: "🖊", preferredStyle: UIAlertController.Style.alert )
-                                  
-                                  
-                                  var noteTextField = UITextField()
-                                  
-                                
-                          //       Textfield in alertcontroller
-                                  alert.addTextField { (textField) in
-                                      textField.placeholder = "Home-Work"
-                                      textField.textColor = .black
-                                      textField.textAlignment = .center
-                                      noteTextField = textField
-                        
-                                  }
-                                  
-                          
-                               
-                                  let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
-                                      // test
-                                      print("Category: \(noteTextField.text!)")
-                                      
-                                      
-                                     
-                                       // 2. Assign the alert controller textField property to a new model instance like we did previously.
-                                      let updatedModel = CategoryTemplateModel(context: self.context)
-                                      updatedModel.categoryName = noteTextField.text
-                                      updatedModel.categoryDate = "Jan 20, 2020"
-                                      
-                                      // 3. Upate our specific array index using indexpath.row by assigning it to our newly data model instance.
-                                      self.db[indexPath.row] = updatedModel
-                                      
-                                      
-                                      // 4. Save conttext
-                                      self.saveData()
-                                      
-                                      
-                                  
-                                      // refresh table to show newly added object
-                                      self.mainTableView.reloadData()
-                                  
-                                  }
-                                  
-                                  
-                                  
-                                  
-                                 
-                                  alert.addAction(save)
-                                  //Cancel action
-                                  let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in
-                                      
-                                      print("Cancel Pressed")
-                                  }
-                                  
-                                  
-                                  alert.addAction(cancel)
-                                  //OR single line action
-                                  //alert.addAction(UIAlertAction(title: "Cancel", style: .default) { (alertAction) in })
-                                  
-                                  self.present(alert, animated:true, completion: nil)
-                   
             
-            break
-        default:
-            print("Action is neither Delete or Edit")
+            // save change
+            saveData()
+            
+            
+            
+        case .none:
+            print("Not Editing !!!")
+        @unknown default:
+            print("Nothing is Happenning")
         }
         
-               // Mark : Note -> This code is usually in the editStyle Delegate /  Method
-               // I'm just using it in here for exampe purpose.
-               
-              
         
         
     }
     
     
-
     
     
+} // MARK: -> View Controller End
 
-}
 
 
 
@@ -290,8 +245,6 @@ extension ViewController {
         } catch {
             print("Error Occured while trying to save data: \(error.localizedDescription)")
         }
-        
-        mainTableView.reloadData()
     }
     
     
@@ -307,31 +260,147 @@ extension ViewController {
         }
         
     }
+
+
+}
     
     // U -> Update
-    func updateData() {
-        
-        
-        
-        
-        
-    }
-    
-    
-    
-    // D -> Deleate
-    
-    func deleteData() {
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-}
+//    func updateData(indexPath row: Int, _ name: String) {
+//
+//
+//        let data: NSFetchRequest<CategoryTemplateModel> = CategoryTemplateModel.fetchRequest()
+//
+//        do {
+//            db = try context.fetch(data)
+//
+//            // 1. create an object of type CategoryTemplateModel
+//
+//            // setting category object to be added to ui
+//            let updatedName = db[row].categoryName = name
+//            print(name)
+//            print("Updated Category Name: \(updatedName)")
+//
+//            saveData()
+//            print("Specific Index: \(row)")
+//            print("Index db: \(name)")
+////            print("Index Date: \(date)")
+//
+////            print("Data: \(data)")
+//
+//
+//
+////
+////                        for index in db {
+////
+////                            // properties in a class
+////                            print("All Index: ")
+////                            print("Index Name: \(index.categoryName!)")
+////                            print("Index Date: \(index.categoryDate!)")
+////
+////                        }
+////
+//
+//
+//
+//            //            mainTableView.reloadData()
+//        } catch {
+//            print("Error Occured while fatching data: \(error.localizedDescription)")
+//        }
+//
+//    }
+//
+//
+//
+//
+//}
 
+
+
+// D -> Deleate
+//
+//    func deleteData() {
+//
+//
+//
+//    }
+
+
+
+
+
+
+
+
+// MARK: -> Alert Controller for UPDATE
+
+
+//
+// let alert = UIAlertController(title: "Add Category", message: "🖊", preferredStyle: UIAlertController.Style.alert )
+//
+//
+//        var noteTextField = UITextField()
+//
+//
+//        //       Textfield in alertcontroller
+//        alert.addTextField { (textField) in
+//            textField.placeholder = "Home-Work"
+//            textField.textColor = .black
+//            textField.textAlignment = .center
+//            noteTextField = textField
+//
+//        }
+//
+//
+//
+//
+//
+//        let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
+//            // test
+//            print("Category: \(noteTextField.text!)")
+//
+//
+//            // 2. Assign the alert controller textField property to a new model instance like we did previously.
+//            let updatedModel = CategoryTemplateModel(context: self.context)
+//
+//
+//
+//            updatedModel.categoryName = noteTextField.text
+//            updatedModel.categoryDate = "Jan 20, 2020"
+//
+//            // 3. Upate our specific array index using indexpath.row by assigning it to our newly data model instance.
+//
+//            // 4. Save conttext
+//
+//
+//            self.updateData(indexPath: indexPath.row, noteTextField.text!)
+//
+////            self.db[indexPath.row] = updatedModel
+//
+//
+//
+//
+//
+//
+//        }
+//
+//
+//        //Step : 4
+//        alert.addAction(save)
+//        //Cancel action
+//        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in
+//
+//            print("Cancel Pressed")
+//        }
+//
+//
+//        alert.addAction(cancel)
+//        //OR single line action
+//        //alert.addAction(UIAlertAction(title: "Cancel", style: .default) { (alertAction) in })
+//
+////        self.present(alert, animated:true, completion: nil)
+//
+//
+//
+//
+//
+//

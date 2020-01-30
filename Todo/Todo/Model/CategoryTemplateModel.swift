@@ -9,43 +9,43 @@
 import Foundation
 
 
-//class CategoryTemplateModel {
-//
-//    var categoryName : String
-//    var categoryDate: String
-//
-//    
-//    // init class
-//    init(categoryName: String, categoryDate: String) {
-//
-//        self.categoryName = categoryName
-//        self.categoryDate = categoryDate
-//
-//    }
-//
-//}
+class Model {
+
+    var categoryName : String
+    var categoryDate: String
+
+    
+    // init class
+    init(categoryName: String, categoryDate: String) {
+
+        self.categoryName = categoryName
+        self.categoryDate = categoryDate
+
+    }
+
+}
 
 
 // Assiging Template classs
-//class SetData {
-//
-//
-//    var db: [CategoryTemplateModel] = []
-//
-//    // dummy data base
-//    let firstDummy = CategoryTemplateModel(categoryName: "Work Out",      categoryDate: "01 / 24 / 20")
-//
-//
-//
-//    // we will porpulate our collection view with the collectio.
-//    func data()->[CategoryTemplateModel] {
-//
-//        return db
-//    }
-//
-//
-//    func setTheData(){
-//        db.append(firstDummy)
-//    }
-//
-//}
+class SetData {
+
+
+    var db: [Model] = []
+
+    // dummy data base
+    let firstDummy = Model(categoryName: "Work Out", categoryDate: "01 / 24 / 20")
+
+
+
+    // we will porpulate our collection view with the collectio.
+    func data()->[Model] {
+
+        return db
+    }
+
+
+    func setTheData(){
+        db.append(firstDummy)
+    }
+
+}

@@ -20,8 +20,6 @@ class CustomeTableViewCell: UITableViewCell {
     // database Instance
     
     
-    
-    
     // outlets
     
     @IBOutlet weak var categoryName: LabelCustomClass!

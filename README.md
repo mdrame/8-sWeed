@@ -1,6 +1,6 @@
  ## About :
 
-A simple, but most effective todo list on the market 📝
+A simple to do list app 📝
 
 ## Progress :
 
